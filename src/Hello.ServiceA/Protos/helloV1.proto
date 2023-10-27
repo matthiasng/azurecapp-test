@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "Hello.ServiceB";
+
+import "google/api/annotations.proto";
+
+package hello.v1;
+
+service Hello {
+  rpc Hello (HelloRequest) returns (HelloMessage) {
+    option (google.api.http) = {
+      get: "/v1/hello"
+    };
+  };
+}
+
+message HelloMessage {
+  string random_id = 1;
+  string message = 2;
+}
+
+message HelloRequest {}
